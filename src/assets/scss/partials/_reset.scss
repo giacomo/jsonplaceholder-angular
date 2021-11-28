@@ -1,0 +1,42 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+// blocks
+html, body, p,
+ol, ul, li,
+dl, dt, dd,
+blockquote, figure, fieldset, legend,
+textarea, pre, iframe, hr,
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+// remove ul bullets
+ul {
+    list-style: none;
+}
+
+
+// remove ugly border on iframes
+iframe {
+    border: 0;
+}
+
+// media
+img, video {
+    height: auto;
+    max-width: 100%;
+}
+
+// tables
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    td, th {
+        padding: 0
+    }
+}
+

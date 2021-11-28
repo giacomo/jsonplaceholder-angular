@@ -1,0 +1,14 @@
+<form class="editor__form" [formGroup]="formGroup">
+    <div class="form__row form__row--col mb-2">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" formControlName="title"/>
+    </div>
+    <div class="form__row form__row--col">
+        <label for="body">Body</label>
+        <textarea id="body" name="body" formControlName="body"></textarea>
+    </div>
+</form>
+<div class="button__group align--right mt-3">
+    <button class="button button--danger mr-2" (click)="cancel()"><i class="fa fa-times"></i> Cancel</button>
+    <button class="button button--succes" (click)="save()"><i class="far fa-save"></i> Save</button>
+</div>

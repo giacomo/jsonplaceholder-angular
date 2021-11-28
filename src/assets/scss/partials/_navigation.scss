@@ -1,0 +1,28 @@
+.nav {
+    border-bottom: 2px solid $primary-color;
+    background-color: $secondary-color;
+
+    .logo {
+        height: 36px;
+        width: 36px;
+        transform: rotate(180deg);
+        border-radius: 50%;
+        border: 2px solid $primary-color;
+    }
+
+    &__brand {
+
+        span {
+            display: none;
+        }
+
+        @media (max-width: $breakpoint-m) {
+            justify-content: center;
+
+            span {
+                display: inline;
+                margin-left: 1rem;
+            }
+        }
+    }
+}

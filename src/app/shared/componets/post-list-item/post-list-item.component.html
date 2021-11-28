@@ -1,0 +1,20 @@
+<div class="item">
+    <ng-container *ngIf="isEditMode === false; else editView">
+        <div class="item__controls">
+            <button class="button button--danger mr-2" (click)="delete()"><i class="fa fa-trash"></i></button>
+            <button class="button" (click)="toggleEdit()"><i class="fa fa-pen"></i></button>
+        </div>
+        <div class="item__header">
+            <h2>#{{ post?.id }} {{ post?.title }}</h2>
+        </div>
+        <div class="item__body">
+            <p>{{ post?.body }}</p>
+        </div>
+        <div class="item__footer align--right">
+            <a class="button button--primary" [routerLink]="['post', post?.id]">View details</a>
+        </div>
+    </ng-container>
+    <ng-template #editView>
+        <jp-post-form [post]="post" (onCancel)="cancel()" (onSave)="save($event)"></jp-post-form>
+    </ng-template>
+</div>

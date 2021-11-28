@@ -1,0 +1,13 @@
+li {
+    &:hover {
+        background-color: darken($bg-color, 10%);
+    }
+
+    border: 1px solid $border-color;
+    padding: 0.9375rem;
+    border-bottom: none;
+
+    &:last-of-type {
+        border-bottom: 1px solid $border-color;
+    }
+}

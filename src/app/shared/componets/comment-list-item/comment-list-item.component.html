@@ -1,0 +1,18 @@
+<div class="item">
+    <ng-container *ngIf="isEditMode === false; else editView">
+        <div class="item__header">
+            <div class="item__controls">
+                <button class="button button--danger mr-2" (click)="delete()"><i class="fa fa-trash"></i></button>
+                <button class="button" (click)="toggleEdit()"><i class="fa fa-pen"></i></button>
+            </div>
+            <h2>Written by {{ comment?.name }}</h2>
+            <a class="email" [href]="'mailto:' + comment?.email">{{ comment?.email }}</a>
+        </div>
+        <div class="item__body">
+            <p>{{ comment?.body }}</p>
+        </div>
+    </ng-container>
+    <ng-template #editView>
+        <jp-comment-form [comment]="comment" (onCancel)="cancel()" (onSave)="save($event)"></jp-comment-form>
+    </ng-template>
+</div>

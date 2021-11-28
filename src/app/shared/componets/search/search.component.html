@@ -1,0 +1,23 @@
+<div class="flex flex--inline">
+    <form [formGroup]="formGroup">
+        <div class="form__row flex--inline">
+            <div class="form__row--select">
+                <select name="filterkey" formControlName="filterKey">
+                    <option value="id">ID</option>
+                    <option value="userId">UserID</option>
+                    <option value="title">Title</option>
+                </select>
+            </div>
+        </div>
+        <div class="form__row flex--inline">
+            <input
+                type="text"
+                name="keyword"
+                formControlName="keyword"
+                class="input--search"
+                autocomplete="off"
+                placeholder="Filter posts..."
+            >
+        </div>
+    </form>
+</div>

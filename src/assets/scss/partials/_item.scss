@@ -1,0 +1,30 @@
+.item {
+    border: 1px solid $border-color;
+    border-radius: 0.3125rem;
+    padding: 0.9375rem;
+    margin-bottom: 0.625rem;
+    position: relative;
+
+    &__controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0.625rem;
+        background: linear-gradient(180deg, rgb(81, 148, 203) 0%, rgba(255,255,255,0) 100%);
+        opacity: 0;
+        text-align: right;
+    }
+
+    &:hover {
+        background-color: darken($bg-color, 10%);
+
+        .item__controls {
+            opacity: 1;
+        }
+    }
+
+    &__footer {
+        padding: 1.25rem 0 0.325rem;
+    }
+}

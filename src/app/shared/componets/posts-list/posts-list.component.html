@@ -1,0 +1,28 @@
+<div class="row mb-3">
+    <div class="col-7 flex flex--aic">
+        <jp-search (keywordChanged)="filterList($event)"></jp-search>
+    </div>
+    <div class="col-2 flex flex--aic flex--jce">
+        <button class="button button--success" (click)="add()"><i class="fa fa-plus"></i> Add Post</button>
+    </div>
+    <div class="col-3 flex flex--aic flex--jce">
+        <jp-sort (sortChanged)="sortList($event)"></jp-sort>
+    </div>
+</div>
+
+<div class="item" *ngIf="showAddForm">
+    <jp-post-form (onCancel)="cancel()" (onSave)="save($event)"></jp-post-form>
+</div>
+
+
+<ng-container *ngIf="postsSubscription$ | async; else indicator">
+    <jp-post-list-item *ngFor="let post of postList" [post]="post" (onDelete)="delete($event)"></jp-post-list-item>
+    <div *ngIf="postList.length === 0" class="item mt-3 mb-3 align--center">
+        <span class="text--secondary">No posts found.</span>
+    </div>
+</ng-container>
+<ng-template #indicator>
+    <div class="loader" *ngIf="error === false"></div>
+    <div *ngIf="error" class="mt-25 text-center">Something went wrong!</div>
+</ng-template>
+

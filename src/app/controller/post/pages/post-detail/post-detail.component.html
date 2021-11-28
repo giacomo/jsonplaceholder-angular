@@ -1,0 +1,10 @@
+<ng-container *ngIf="postDetail$ | async as post">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.body }}</p>
+
+    <hr/>
+
+    <jp-comments-list *ngIf="postId" [relatedPostId]="postId"></jp-comments-list>
+</ng-container>
+
+

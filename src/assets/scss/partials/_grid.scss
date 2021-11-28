@@ -1,0 +1,36 @@
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1em;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i}{
+        grid-column: span 12;
+
+        @media (min-width: $breakpoint-m) {
+            grid-column: span #{$i};
+        }
+    }
+}
+
+
+.flex {
+    display: flex;
+
+    &--inline {
+        display: inline-flex !important;
+    }
+
+    &--row {
+        flex-direction: row;
+    }
+
+    &--aic {
+        align-items: center;
+    }
+
+    &--jce {
+        justify-content: end;
+    }
+}

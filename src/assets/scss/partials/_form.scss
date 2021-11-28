@@ -1,0 +1,146 @@
+.form__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &--col {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+label {
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+input[type="text"], input[type="email"], textarea {
+    line-height: 1.125rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: .25rem;
+    border: 1px solid $secondary-color;
+    padding: 0 0.625rem;
+    font-family: $font-family;
+}
+
+textarea {
+    padding: 0.625rem;
+    height: 6rem;
+    font-size: 14px;
+}
+
+.input--search {
+    border-left: none;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    padding: 6px 0.625rem 3px !important;
+    height: 36px;
+    margin-left: -4px;
+    outline: none;
+
+    &:active, &:focus {
+        border: 1px solid $primary-color;
+    }
+}
+
+.input--error {
+    border-color: $danger-color !important;
+    border-width: 2px !important;
+}
+
+
+input[type="checkbox"] {
+    cursor: pointer;
+    overflow: hidden;
+    box-sizing: content-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        border: 2px solid $primary-color;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+    }
+
+    &::after {
+        content: '';
+        display: none;
+        position: absolute;
+        box-sizing: content-box;
+        top: -3px;
+        left: 6px;
+        width: 8px;
+        height: 14px;
+        transform: rotate(45deg);
+        background-color: transparent;
+        box-shadow: 3px 3px 0 0 $primary-color;
+    }
+
+    &:checked {
+        &::after {
+            display: block;
+        }
+    }
+}
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: $primary-color;
+    background-image: none;
+    //margin: 0 0 0 .4rem;
+    padding: .25rem;
+    color: #fff;
+    cursor: pointer;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    line-height: 1.125rem;
+    width: 100%;
+    height: 100%;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.form__row--select {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 3rem;
+    line-height: 3;
+    background: $primary-color;
+    overflow: hidden;
+    border-radius: .25rem;
+
+    &::after {
+        content: '\25BC';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        padding: 1rem;
+        background-color: $secondary-color;
+        line-height: 1.125rem;
+        pointer-events: none;
+    }
+
+    &:hover {
+        &::after {
+            color: #f39c12;
+        }
+    }
+}

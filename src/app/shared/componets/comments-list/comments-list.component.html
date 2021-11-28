@@ -1,0 +1,23 @@
+<div class="row mt-3 mb-3">
+    <div class="col-6 flex flex--aic">
+        <h4>Comments:</h4>
+    </div>
+    <div class="col-6 align--right">
+        <button class="button" (click)="add()"><i class="fa fa-plus"></i> Add comment</button>
+    </div>
+</div>
+
+<div class="item" *ngIf="showAddForm">
+    <jp-comment-form (onCancel)="cancel()" (onSave)="save($event)" [relatedPostId]="relatedPostId"></jp-comment-form>
+</div>
+
+<ng-container *ngIf="commentsSubscription$ | async; else indicator">
+    <jp-comment-list-item *ngFor="let comment of commentList" [comment]="comment" (onDelete)="delete($event)"></jp-comment-list-item>
+    <div *ngIf="commentList.length === 0" class="item mt-3 mb-3 align--center">
+        <span class="text--secondary">No comments found.</span>
+    </div>
+</ng-container>
+<ng-template #indicator>
+    <div class="loader" *ngIf="error === false"></div>
+    <div *ngIf="error" class="mt-25 text-center">Something went wrong!</div>
+</ng-template>
